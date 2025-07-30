@@ -192,18 +192,6 @@ npm run build
 # Deploy the dist/ folder to Vercel
 ```
 
-### Netlify
-```bash
-npm run build
-# Deploy the dist/ folder to Netlify
-```
-
-### GitHub Pages
-```bash
-npm run build
-# Deploy the dist/ folder to GitHub Pages
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -223,72 +211,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Tailwind CSS for the utility-first CSS framework
 - Lucide React for the beautiful icons
 
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-This project is optimized for Vercel deployment with zero configuration needed.
-
-#### Automatic Deployment
-1. **Fork this repository** to your GitHub account
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Sign up/login with your GitHub account
-   - Click "New Project"
-   - Import your forked repository
-   - Click "Deploy" (no configuration needed!)
-
-#### Manual Deployment
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Build the project
-npm run build
-
-# Deploy to Vercel
-vercel --prod
-```
-
-#### Custom Domain
-After deployment, you can add a custom domain in your Vercel dashboard:
-1. Go to your project settings
-2. Click "Domains"
-3. Add your custom domain
-
-### Other Deployment Options
-
-#### Netlify
-```bash
-# Build the project
-npm run build
-
-# Deploy the dist folder to Netlify
-# Or connect your GitHub repo to Netlify for automatic deployments
-```
-
-#### GitHub Pages
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-# "deploy": "gh-pages -d dist"
-
-# Build and deploy
-npm run build
-npm run deploy
-```
-
-### Environment Variables
-
-For production deployment, you may want to set these environment variables:
-
-```env
-VITE_APP_NAME=LearnHub
-VITE_APP_VERSION=1.0.0
-VITE_APP_URL=https://your-domain.com
-```
 
 ## 📞 Support
 
@@ -307,10 +229,4 @@ Start your JavaScript journey today and become a proficient web developer!
 
 Visit the live application: [LearnHub on Vercel](https://learnhub-9nimlxibn-muhammad-qaswars-projects-419e6128.vercel.app)
 
-## 📊 Project Stats
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Qaswar-01/LearnHub)
-![GitHub stars](https://img.shields.io/github/stars/Qaswar-01/LearnHub)
-![GitHub forks](https://img.shields.io/github/forks/Qaswar-01/LearnHub)
-![GitHub issues](https://img.shields.io/github/issues/Qaswar-01/LearnHub)
-![GitHub license](https://img.shields.io/github/license/Qaswar-01/LearnHub)
