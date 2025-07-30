@@ -1,6 +1,14 @@
 # LearnHub - Interactive Learning Platform
 
-A comprehensive, interactive web development learning platform built with React, featuring complete lessons with YouTube video integration, interactive coding games, responsive design, and Progressive Web App (PWA) capabilities.
+A comprehensive, interactive web development learning platform built with React and Vite, featuring complete lessons with YouTube video integration, interactive coding games, responsive design, and Progressive Web App (PWA) capabilities. Access the platform at [LearnHub](https://learnhub.vercel.app).
+
+## 🛠️ Tech Stack
+- **React** (v19.1) - Modern UI development
+- **Vite** - Next Generation Frontend Tooling
+- **React Router** (v7.7) - Application routing
+- **Lucide React** - Beautiful icons
+- **TailwindCSS** - Utility-first CSS framework
+- **PWA** - Progressive Web App capabilities
 
 ## 🚀 Features
 
@@ -51,8 +59,8 @@ A comprehensive, interactive web development learning platform built with React,
 ### Quick Start
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd javascript-full-course
+git clone https://github.com/Qaswar-01/LearnHub.git
+cd LearnHub
 
 # Install dependencies
 npm install
@@ -63,9 +71,11 @@ npm run dev
 # Build for production
 npm run build
 
-# Preview production build
+# Preview production build locally
 npm run preview
 ```
+
+Visit `http://localhost:5173` in your browser when running the development server.
 
 ### PWA Setup
 The application is configured as a Progressive Web App. After building for production:
