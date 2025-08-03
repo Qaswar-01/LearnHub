@@ -15,8 +15,8 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
-        navigateFallback: 'index.html',
-        navigateFallbackAllowlist: [/^\/$/]
+        navigateFallback: '/index.html',
+        navigateFallbackAllowlist: [/^(?!\/__).*/]
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       manifest: {
@@ -28,7 +28,7 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
-        start_url: '.',
+        start_url: '/',
         icons: [
           {
             src: 'icons/icon-72x72.svg',

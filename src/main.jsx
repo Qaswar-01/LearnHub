@@ -36,7 +36,7 @@ async function registerServiceWorker() {
 
       // Fallback to manual service worker registration
       try {
-        const registration = await navigator.serviceWorker.register('/dev-sw.js', {
+        const registration = await navigator.serviceWorker.register('/sw.js', {
           scope: '/',
           type: 'classic'
         });
@@ -87,29 +87,22 @@ if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.
 
 // Global install function for PWA
 window.installPWA = async () => {
-  if (window.deferredPrompt) {
-    const promptEvent = window.deferredPrompt;
-    promptEvent.prompt();
-    const result = await promptEvent.userChoice;
-    window.deferredPrompt = null;
-    return result;
-  }
-  return { outcome: 'dismissed' };
-};
-
-// Expose PWA install function globally
-window.installPWA = async () => {
   if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`PWA install prompt outcome: ${outcome}`);
+    try {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`PWA install prompt outcome: ${outcome}`);
 
-    if (outcome === 'accepted') {
-      deferredPrompt = null;
-      window.deferredPrompt = null;
+      if (outcome === 'accepted') {
+        deferredPrompt = null;
+        window.deferredPrompt = null;
+      }
+
+      return outcome;
+    } catch (error) {
+      console.error('Error during PWA installation:', error);
+      return 'error';
     }
-
-    return outcome;
   } else {
     console.log('PWA install prompt not available');
     return 'not-available';
