@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub Sidebar Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .game-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.5s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .pulse-success {
+            animation: pulseSuccess 1s ease-in-out;
+        }
+        
+        @keyframes pulseSuccess {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Demo Page Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">🎮 LearnHub Sidebar Game Demo</h1>
+            <p class="text-lg text-gray-600 mb-8">Click the game button to open the interactive sidebar game!</p>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold mb-4">Features</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">🐛 Fix the Bug</h3>
+                        <p class="text-gray-600">Debug JavaScript code snippets and fix common programming errors.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">🐸 Flexbox Frog</h3>
+                        <p class="text-gray-600">Master CSS Flexbox by positioning frogs on lily pads.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">🎯 Selector Match</h3>
+                        <p class="text-gray-600">Practice CSS selectors with interactive challenges.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">🏗️ HTML Builder</h3>
+                        <p class="text-gray-600">Build HTML structures with drag-and-drop elements.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button id="open-game-btn" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                    🎯 Open Sidebar Game
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Game -->
+    <div id="game-sidebar" class="fixed right-0 top-0 h-screen w-[380px] bg-white border-l shadow-2xl p-4 flex flex-col gap-4 transition-transform transform translate-x-full z-50">
+        <!-- Header -->
+        <div class="flex justify-between items-center border-b pb-4">
+            <h2 class="text-xl font-bold text-gray-800">🎯 Quick Game</h2>
+            <button id="close-game" class="text-gray-500 hover:text-red-500 text-2xl font-bold transition-colors">&times;</button>
+        </div>
+
+        <!-- Game Type Selector -->
+        <div id="game-selector" class="space-y-2">
+            <h3 class="font-semibold text-gray-700">Choose Game Type:</h3>
+            <div class="grid grid-cols-2 gap-2">
+                <button class="game-type-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-type="fix-bug">
+                    🐛 Fix Bug
+                </button>
+                <button class="game-type-btn bg-green-100 hover:bg-green-200 text-green-800 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-type="flexbox">
+                    🐸 Flexbox
+                </button>
+                <button class="game-type-btn bg-purple-100 hover:bg-purple-200 text-purple-800 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-type="selector">
+                    🎯 Selector
+                </button>
+                <button class="game-type-btn bg-orange-100 hover:bg-orange-200 text-orange-800 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-type="html-builder">
+                    🏗️ HTML
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Content -->
+        <div id="game-content" class="flex-1 flex flex-col gap-4 hidden">
+            <!-- Question -->
+            <div id="game-question" class="bg-gray-50 rounded-lg p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <span id="game-icon" class="text-2xl">🎯</span>
+                    <h3 id="game-title" class="font-semibold text-gray-800">Loading...</h3>
+                </div>
+                <p id="game-description" class="text-sm text-gray-600 mb-3">Loading game...</p>
+                <div id="game-code-block" class="hidden bg-gray-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto"></div>
+                <div id="game-visual" class="hidden mt-3"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div id="input-area">
+                <textarea id="game-input" class="w-full border border-gray-300 rounded-lg p-3 h-32 font-mono text-sm resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your answer..."></textarea>
+                
+                <!-- Multiple Choice Options -->
+                <div id="mcq-options" class="hidden space-y-2 mt-2"></div>
+                
+                <!-- Show Answer Button -->
+                <div class="flex gap-2 mt-2">
+                    <button id="submit-answer" class="flex-1 bg-blue-600 text-white rounded-lg py-2 font-medium hover:bg-blue-700 transition-colors">
+                        Submit Answer
+                    </button>
+                    <button id="show-answer-btn" class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition-colors">
+                        💡
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feedback -->
+            <div id="feedback" class="hidden rounded-lg p-3 text-sm"></div>
+
+            <!-- Next Question Button -->
+            <button id="next-question" class="hidden bg-green-600 text-white rounded-lg py-2 font-medium hover:bg-green-700 transition-colors">
+                Next Question →
+            </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-auto border-t pt-4">
+            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                <span>Score: <span id="score" class="font-semibold text-blue-600">0</span></span>
+                <span>Streak: <span id="streak" class="font-semibold text-green-600">0</span></span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600">
+                <span>Accuracy: <span id="accuracy" class="font-semibold text-purple-600">0%</span></span>
+                <button id="leaderboard-btn" class="text-yellow-600 hover:text-yellow-700 font-medium">🏆 Leaderboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Modal -->
+    <div id="leaderboard-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-60 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">🏆 Leaderboard</h3>
+                <button id="close-leaderboard" class="text-gray-500 hover:text-red-500 text-xl">&times;</button>
+            </div>
+            <div id="leaderboard-content" class="space-y-2 max-h-64 overflow-y-auto">
+                <!-- Leaderboard entries will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/questions.js"></script>
+    <script src="js/UIHelpers.js"></script>
+    <script src="js/GameEngine.js"></script>
+    <script src="js/Leaderboard.js"></script>
+    <script src="js/SidebarGame.js"></script>
+    
+    <script>
+        // Initialize the game when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarGame = new SidebarGame();
+            
+            // Open game button
+            document.getElementById('open-game-btn').addEventListener('click', () => {
+                sidebarGame.open();
+            });
+        });
+    </script>
+</body>
+</html>
