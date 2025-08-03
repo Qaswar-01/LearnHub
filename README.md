@@ -1,14 +1,29 @@
 # LearnHub - Interactive Learning Platform
 
-A comprehensive, interactive web development learning platform built with React and Vite, featuring complete lessons with YouTube video integration, interactive coding games, responsive design, and Progressive Web App (PWA) capabilities. Access the platform at [LearnHub](https://learnhub.vercel.app).
+A comprehensive, interactive web development learning platform built with React and Vite, featuring complete lessons with YouTube video integration, interactive coding games, responsive design, and Progressive Web App (PWA) capabilities.
+
+🌐 **Live Demo**: [LearnHub on Vercel](https://learnhub-9nimlxibn-muhammad-qaswars-projects-419e6128.vercel.app)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Qaswar-01/LearnHub)
+
+## 🆕 Recent Updates
+
+### v1.1.0 - PWA Enhancements (Latest)
+- ✅ **Fixed PWA Loading Issues**: Resolved inconsistent PWA loading on first visit
+- ✅ **Enhanced Service Worker**: Improved service worker registration with fallback support
+- ✅ **Better Install Prompts**: More reliable PWA install button functionality
+- ✅ **Optimized Caching**: Enhanced Workbox configuration for better performance
+- ✅ **Vercel Optimization**: Improved deployment configuration with proper headers
+- ✅ **Error Handling**: Better error handling for PWA installation process
 
 ## 🛠️ Tech Stack
 - **React** (v19.1) - Modern UI development
-- **Vite** - Next Generation Frontend Tooling
+- **Vite** (v7.0.6) - Next Generation Frontend Tooling
 - **React Router** (v7.7) - Application routing
 - **Lucide React** - Beautiful icons
 - **TailwindCSS** - Utility-first CSS framework
-- **PWA** - Progressive Web App capabilities
+- **Vite PWA Plugin** - Progressive Web App capabilities
+- **Workbox** - Service worker and caching strategies
 
 ## 🚀 Features
 
@@ -290,4 +305,12 @@ Start your JavaScript journey today and become a proficient web developer!
 
 ## 🌐 Live Demo
 
-Visit the live application: [LearnHub on Vercel](https://learnhub.vercel.app)
+Visit the live application: [LearnHub on Vercel](https://learnhub-9nimlxibn-muhammad-qaswars-projects-419e6128.vercel.app)
+
+## 📊 Project Stats
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Qaswar-01/LearnHub)
+![GitHub stars](https://img.shields.io/github/stars/Qaswar-01/LearnHub)
+![GitHub forks](https://img.shields.io/github/forks/Qaswar-01/LearnHub)
+![GitHub issues](https://img.shields.io/github/issues/Qaswar-01/LearnHub)
+![GitHub license](https://img.shields.io/github/license/Qaswar-01/LearnHub)
